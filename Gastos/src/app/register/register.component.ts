@@ -25,17 +25,20 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {}
 
-  onSubmit(loginData) {
+  onSubmit(registerData) {
     this.errMsg = undefined;
   
     this.registerForm.reset();
 
-    console.warn("Register information", loginData);
+    console.warn("Register information", registerData);
 
-    const { email, password } = loginData;
+    const { email, password } = registerData;
 
     if (email == "" || password == "") {
       this.errMsg = "Por favor valide los datos ingresados"
+    } else {
+      // Call to service and if is okey redirect
+      this.router.navigate(['/expenses']);
     }
   }
 

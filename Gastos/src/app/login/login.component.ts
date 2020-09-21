@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   onSubmit(loginData) {
     this.errMsg = undefined;
   
-    this.loginForm.reset();
+    //this.loginForm.reset();
 
     console.warn("Login information", loginData);
 

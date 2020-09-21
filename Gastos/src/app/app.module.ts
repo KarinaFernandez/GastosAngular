@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 
 @NgModule({
-  declarations: [	
+  declarations: [			
     AppComponent,
       TopBarComponent,
       RoutingComponents

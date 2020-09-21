@@ -1,21 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AppRoutingModule, RoutingComponents } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { ExpenseListComponent } from './expense-list/expense-list.component';
 
 @NgModule({
   declarations: [			
     AppComponent,
       TopBarComponent,
-      RoutingComponents
+      LoginComponent, RegisterComponent, ExpenseListComponent
    ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    HttpClientModule,
+    RouterModule.forRoot([
+      { path: '', component: LoginComponent },
+    { path: 'register', component: RegisterComponent },
+    { path: 'expenses', component: ExpenseListComponent }
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]

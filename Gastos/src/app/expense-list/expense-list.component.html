@@ -1,3 +1,10 @@
-<p>
-  expense-list works!
-</p>
+<h2>Mis ultimos gastos </h2>
+<h2 *ngFor="let expense of expenses">
+  <a [title]="expense.name">
+    {{expense.name}}
+  </a>
+
+  <p>
+    {{ expense.amount }}
+  </p>
+</h2>

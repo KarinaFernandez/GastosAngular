@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ExpenseServiceService } from '../services/expense.service';
 
 @Component({
   selector: 'app-expense-list',
@@ -6,10 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./expense-list.component.css']
 })
 export class ExpenseListComponent implements OnInit {
+  expenses;
 
-  constructor() { }
+  constructor(
+    private expenseService: ExpenseServiceService,
+  ) { }
 
   ngOnInit() {
+    this.expenses = this.expenseService.getExpenses();
   }
 
+  /*
+  getExpenses() {
+    this.expenseService.getExpenses().subscribe(a => {
+      this.expenses = a.expenses;
+      console.log(this.expenses);
+    })
+  }*/
 }

@@ -1,27 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { AppRoutingModule, RoutingComponents } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [	
     AppComponent,
       TopBarComponent,
-      LoginComponent,
-      RegisterComponent
+      RoutingComponents
    ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    RouterModule.forRoot([
-      { path: '', component: LoginComponent },
-      { path: 'register', component: RegisterComponent },
-    ])
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

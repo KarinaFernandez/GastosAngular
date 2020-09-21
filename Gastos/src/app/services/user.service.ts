@@ -27,9 +27,7 @@ export class UserService {
   register(usuario, password){
     const headers = { 'Content-Type': 'application/json' };
     const body = JSON.stringify({ usuario, password });
-    return this.http.post("http://xpense.develotion.com/usuarios.php", body,{ headers }).subscribe(a => {
-        this.user = a;
-      });
+    return this.http.post("http://xpense.develotion.com/usuarios.php", body,{ headers })
   }
 
   login(usuario, password) {

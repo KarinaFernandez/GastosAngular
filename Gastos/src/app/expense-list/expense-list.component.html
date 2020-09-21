@@ -1,10 +1,6 @@
-<h2>Mis ultimos gastos </h2>
-<h2 *ngFor="let expense of expenses">
-  <a [title]="expense.name">
-    {{expense.name}}
-  </a>
+<h5>Mis ultimos gastos </h5>
 
-  <p>
-    {{ expense.amount }}
-  </p>
-</h2>
+<div class="expense-item" *ngFor="let expense of expenses">
+  <span>{{expense.name}}</span>
+  <span>{{expense.price | currency}}</span>
+</div>

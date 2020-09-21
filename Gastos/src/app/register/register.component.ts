@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -14,6 +15,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
+    private userService: UserService,
     private router: Router,
   ) 
   {
@@ -38,7 +40,16 @@ export class RegisterComponent implements OnInit {
       this.errMsg = "Por favor valide los datos ingresados"
     } else {
       // Call to service and if is okey redirect
-      this.router.navigate(['/expenses']);
+      this.userService.login(email, password).subscribe(user => {
+        this.userService.setUser(user);
+        console.log(user);
+        this.router.navigate(['/expenses']);
+      },
+        err => {
+          if (err.status === 409) {
+            this.errMsg = 'No existe usuario con las credenciales ingresadas';
+          }
+        });
     }
   }
 

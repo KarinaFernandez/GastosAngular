@@ -14,14 +14,16 @@ export class ExpenseListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.expenses = this.expenseService.getExpenses();
+    // this.expenses = this.expenseService.getExpenses();
+    // console.log(this.expenses);
+    this.getExpenses();
   }
 
-  /*
+  
   getExpenses() {
     this.expenseService.getExpenses().subscribe(a => {
-      this.expenses = a.expenses;
+      // this.expenses = a.expenses;
       console.log(this.expenses);
     })
-  }*/
+  }
 }

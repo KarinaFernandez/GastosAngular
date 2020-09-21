@@ -14,12 +14,18 @@ export class ExpenseServiceService {
   ) { }
 
   getExpenses() {
-    const headers = { 'Content-Type': 'application/json', 'apiKey': "this.userService.getUser().apiKey" };
-    return this.http.get("https://xpense.develotion.com/rubros.php", { headers });
+    const headers = { 'Content-Type': 'application/json', 'apiKey': this.userService.getUser().apiKey };
+    return this.http.get("http://xpense.develotion.com/gastos.php", { headers });
   }
 
   getExpenseTypes() {
     const headers = { 'Content-Type': 'application/json', 'apiKey': this.userService.getUser().apiKey };
     return this.http.get("http://xpense.develotion.com/rubros.php", { headers });
+  }
+
+  addExpense(nombre, monto, idUsuario, idRubro) {
+    const headers = { 'Content-Type': 'application/json', 'apiKey': this.userService.getUser().apiKey  };
+    const body = JSON.stringify({ nombre, monto, idUsuario, idRubro});
+    return this.http.post("http://xpense.develotion.com/gastos.php", body,{ headers });
   }
 }

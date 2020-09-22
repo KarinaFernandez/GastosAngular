@@ -35,7 +35,9 @@ export class LoginComponent implements OnInit {
 
     if (email == "" || password == "") {
       this.errMsg = "Por favor valide los datos ingresados"
+
     } else {
+
       // Call to service and if is okey redirect
       this.userService.login(email, password).subscribe(user => {
         this.userService.setUser(user);

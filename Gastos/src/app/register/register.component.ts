@@ -40,14 +40,14 @@ export class RegisterComponent implements OnInit {
       this.errMsg = "Por favor valide los datos ingresados"
     } else {
       // Call to service and if is okey redirect
-      this.userService.login(email, password).subscribe(user => {
+      this.userService.register(email, password).subscribe(user => {
         this.userService.setUser(user);
         console.log(user);
         this.router.navigate(['/expenses']);
       },
         err => {
           if (err.status === 409) {
-            this.errMsg = 'No existe usuario con las credenciales ingresadas';
+            this.errMsg = 'Ya existe un usuario registrado con ese nombre';
           }
         });
     }

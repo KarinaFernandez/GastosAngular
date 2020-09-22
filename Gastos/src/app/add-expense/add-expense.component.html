@@ -1,0 +1,21 @@
+<body class="text-center">
+	<form class="text-center p-5" [formGroup]="addExpenseForm" (ngSubmit)="onSubmit(addExpenseForm.value)">
+
+		<p class="h4 mb-4">Registro de gasto</p>
+		<input type="text" id="name" class="form-control mb-4" placeholder="Nombre" formControlName="name">
+    <input type="amount" id="amount" class="form-control mb-4" placeholder="Monto" formControlName="amount">
+
+    <ul class="types">
+      <li *ngFor="let type of expenseTypes">
+        <span class="type">{{type.id}}</span> {{type.nombre}}
+      </li>
+    </ul>
+    <h2 id="aaaa" *ngFor="let type of expenseTypes; index as id">
+      {{ type.nombre }}
+    </h2>
+
+		<p *ngIf="errMsg">{{errMsg}}</p>
+
+		<button class="btn btn-info btn-block my-4" type="submit">Registrar gasto</button>
+	</form>
+</body>

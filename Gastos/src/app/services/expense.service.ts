@@ -7,6 +7,7 @@ import { UserService } from './user.service';
 })
 export class ExpenseServiceService {
   expenses = [];
+  expenseTypes = [];
 
   constructor(
     private http: HttpClient,
@@ -28,4 +29,5 @@ export class ExpenseServiceService {
     const body = JSON.stringify({ nombre, monto, idUsuario, idRubro});
     return this.http.post("http://xpense.develotion.com/gastos.php", body,{ headers });
   }
+
 }

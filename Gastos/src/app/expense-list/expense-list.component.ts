@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ExpenseServiceService } from '../services/expense.service';
 
 @Component({
@@ -7,23 +8,25 @@ import { ExpenseServiceService } from '../services/expense.service';
   styleUrls: ['./expense-list.component.css']
 })
 export class ExpenseListComponent implements OnInit {
-  expenses;
+  gastos;
 
   constructor(
     private expenseService: ExpenseServiceService,
+    private router: Router
   ) { }
 
   ngOnInit() {
-    // this.expenses = this.expenseService.getExpenses();
-    // console.log(this.expenses);
     this.getExpenses();
   }
-
   
   getExpenses() {
     this.expenseService.getExpenses().subscribe(a => {
-      // this.expenses = a.expenses;
-      console.log(this.expenses);
+       this.gastos = a.gastos;
+      console.log(this.gastos);
     })
+  }
+
+  addExpense() {
+    this.router.navigate(['/addExpense']);
   }
 }

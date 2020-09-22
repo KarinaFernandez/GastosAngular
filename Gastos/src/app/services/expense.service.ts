@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { UserService } from './user.service';
 
 @Injectable({
@@ -16,7 +16,8 @@ export class ExpenseServiceService {
 
   getExpenses() {
     const headers = { 'Content-Type': 'application/json', 'apiKey': this.userService.getUser().apiKey };
-    return this.http.get("http://xpense.develotion.com/gastos.php", { headers });
+    const params = new HttpParams().append('id', this.userService.getUser().id);
+    return this.http.get("http://xpense.develotion.com/gastos.php", { headers, params });
   }
 
   getExpenseTypes() {

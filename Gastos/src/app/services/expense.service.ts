@@ -6,8 +6,8 @@ import { UserService } from './user.service';
   providedIn: 'root'
 })
 export class ExpenseServiceService {
-  expenses = [];
-  expenseTypes = [];
+  gastos = [];
+  rubros = [];
 
   constructor(
     private http: HttpClient,

@@ -5,14 +5,14 @@
 		<input type="text" id="name" class="form-control mb-4" placeholder="Nombre" formControlName="name">
     <input type="amount" id="amount" class="form-control mb-4" placeholder="Monto" formControlName="amount">
 
-    <ul class="types">
+    <!-- <ul class="types">
       <li *ngFor="let type of expenseTypes">
         <span class="type">{{type.id}}</span> {{type.nombre}}
       </li>
     </ul>
     <h2 id="aaaa" *ngFor="let type of expenseTypes; index as id">
       {{ type.nombre }}
-    </h2>
+    </h2> -->
 
 		<p *ngIf="errMsg">{{errMsg}}</p>
 

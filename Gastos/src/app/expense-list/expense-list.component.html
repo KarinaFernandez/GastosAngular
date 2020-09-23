@@ -1,14 +1,22 @@
 <body class="text-center">
-<h5>Mis ultimos gastos </h5>
-
-<div>
-  <button class="btn btn-info btn-block my-4" (click)="addExpense()">Registrar gasto</button>
-</div>
-<div>
-<p>No se registraron gastos aún</p>
-</div>
-<div class="expense-item" *ngFor="let expense of expenses">
-  <span>{{expense.name}}</span>
-  <span>{{expense.price | currency}}</span>
-</div>
+  <div>
+    <h5>Mis ultimos gastos </h5>
+    <button class="btn btn-info button-small my-4" (click)="addExpense()">Registrar gasto</button>
+  </div>
+  <div>
+    <p *ngIf="gastos?.length <= 0">No se registraron gastos aún</p>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th *ngFor="let titulo of titulos" scope="col">{{ titulo }} </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr mdbTableCol *ngFor="let gasto of gastos">
+          <td>{{gasto.nombre}}</td>
+          <td>{{gasto.monto}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </body>

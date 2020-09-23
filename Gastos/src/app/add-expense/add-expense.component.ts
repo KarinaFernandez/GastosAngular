@@ -19,21 +19,21 @@ export class AddExpenseComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private userService: UserService) {
-      this.addExpenseForm = this.formBuilder.group({
-        name: '',
-        amount: '',
-        expenseType: ''
-      });
-     }
+    this.addExpenseForm = this.formBuilder.group({
+      name: '',
+      amount: '',
+      expenseType: ''
+    });
+  }
 
   ngOnInit() {
     this.getExpenseTypes();
   }
 
   getExpenseTypes() {
-    this.expenseService.getExpenseTypes().subscribe(a => {
+    this.expenseService.getExpenseTypes().subscribe((a: any) => {
       this.rubros = a.rubros;
-      console.log(this.rubros);
+      console.log(a);
     })
   }
 

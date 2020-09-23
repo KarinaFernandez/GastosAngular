@@ -9,10 +9,11 @@ import { ExpenseServiceService } from '../services/expense.service';
 })
 export class ExpenseListComponent implements OnInit {
   gastos;
+  titulos = [];
 
   constructor(
     private expenseService: ExpenseServiceService,
-    private router: Router
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -20,9 +21,10 @@ export class ExpenseListComponent implements OnInit {
   }
   
   getExpenses() {
-    this.expenseService.getExpenses().subscribe(a => {
-       this.gastos = a.gastos;
-      console.log(this.gastos);
+    this.expenseService.getExpenses().subscribe((a: any) => {
+      this.gastos = a.gastos;
+
+      this.titulos = ["Nombre", "Monto"];
     })
   }
 

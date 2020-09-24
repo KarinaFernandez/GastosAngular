@@ -1,0 +1,21 @@
+<body class="text-center">
+  <div>
+    <h5>Compras por rubro</h5>
+  </div>
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <td>Rubro</td>
+          <td>Cantidad de compras</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr mdbTableCol *ngFor="let rubro of rubros">
+          <td>{{rubro.rubro}}</td>
+          <td>{{rubro.cant}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>

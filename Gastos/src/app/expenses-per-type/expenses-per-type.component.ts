@@ -14,22 +14,15 @@ export class ExpensesPerTypeComponent implements OnInit {
   constructor(private expenseService: ExpenseServiceService) { }
 
   ngOnInit() {
-    this.getExpenses()
+    this.getExpenses();
   }
 
   getExpenses() {
+    // TODO: Change this service's call by value in service
     this.expenseService.getExpenses().subscribe((a: any) => {
       this.todosGastos = a.gastos;
-      console.log(this.todosGastos);
       this.getSumByExpenseType();
     })
-  }
-
-  getExpensesByType() {
-    var msgTotal = this.todosGastos.reduce(function (prev, cur) {
-      return prev + parseInt(cur.monto);
-    }, 0);
-    console.log(msgTotal);
   }
 
   getSumByExpenseType() {
@@ -42,10 +35,7 @@ export class ExpensesPerTypeComponent implements OnInit {
       acc.push(o);
       return acc;
     }, []);
-    console.log(result);
 
     this.rubros = Array.from(new Set(result));
-    console.log(this.rubros);
-
   }
 }

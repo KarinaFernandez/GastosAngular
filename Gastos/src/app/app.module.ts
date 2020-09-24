@@ -11,6 +11,7 @@ import { RegisterComponent } from './register/register.component';
 import { ExpenseListComponent } from './expense-list/expense-list.component';
 import { AddExpenseComponent } from './add-expense/add-expense.component';
 import { ExpensesPerTypeComponent } from './expenses-per-type/expenses-per-type.component';
+import { PurchaseByTypeComponent } from './purchase-by-type/purchase-by-type.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ExpensesPerTypeComponent } from './expenses-per-type/expenses-per-type.
     RegisterComponent,
     ExpenseListComponent,
     AddExpenseComponent,
-    ExpensesPerTypeComponent
+    ExpensesPerTypeComponent,
+    PurchaseByTypeComponent
   ],
   imports: [
     BrowserModule,

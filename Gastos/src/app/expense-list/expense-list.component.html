@@ -1,9 +1,7 @@
-<body class="text-center">
-  <div>
+<body>
+  <button class="btn btn-info button-small my-4" (click)="addExpense()">Registrar gasto</button>
+  <div class="text-center">
     <h5>Mis ultimos gastos </h5>
-    <button class="btn btn-info button-small my-4" (click)="addExpense()">Registrar gasto</button>
-  </div>
-  <div>
     <p *ngIf="gastos?.length <= 0">No se registraron gastos aún</p>
     <p *ngIf="errMsg">{{errMsg}}</p>
 
@@ -25,7 +23,10 @@
       </tbody>
     </table>
   </div>
-  <body class="container">
+  <body class="container m-t-1">
     <app-expenses-per-type></app-expenses-per-type>
+  </body>
+  <body class="container m-t-1">
+    <app-purchase-by-type></app-purchase-by-type>
   </body>
 </body>

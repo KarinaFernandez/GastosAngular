@@ -31,4 +31,10 @@ export class ExpenseServiceService {
     return this.http.post("http://xpense.develotion.com/gastos.php", body,{ headers });
   }
 
+  removeExpense(idGasto) {
+    const headers = { 'Content-Type': 'application/json', 'apiKey': this.userService.getUser().apiKey  };
+    const body = JSON.stringify({ idGasto});
+    return this.http.request('delete', "http://xpense.develotion.com/gastos.php", { body, headers });
+  }
+
 }

@@ -8,8 +8,10 @@ import { ExpenseServiceService } from '../services/expense.service';
   styleUrls: ['./expense-list.component.css']
 })
 export class ExpenseListComponent implements OnInit {
-  gastos;
+  todosGastos;
+  gastos = [];
   titulos = [];
+  errMsg;
 
   constructor(
     private expenseService: ExpenseServiceService,
@@ -19,16 +21,33 @@ export class ExpenseListComponent implements OnInit {
   ngOnInit() {
     this.getExpenses();
   }
-  
+
   getExpenses() {
     this.expenseService.getExpenses().subscribe((a: any) => {
-      this.gastos = a.gastos;
+      this.todosGastos = a.gastos;
+       this.gastos = this.todosGastos.slice(0, 10);
 
-      this.titulos = ["Nombre", "Monto"];
+      // TODO: Fix this
+      this.titulos = ["Nombre", "Monto", ""];
     })
   }
 
   addExpense() {
     this.router.navigate(['/addExpense']);
+  }
+
+  removeExpense(index) {
+    console.log(index);
+
+    let idGasto = this.todosGastos[index].id
+    console.log(idGasto);
+
+    this.expenseService.removeExpense(idGasto).subscribe((a: any) => {
+      if (a.codigo == 200) {
+        this.getExpenses();
+      } else {
+        this.errMsg = a.mensaje;
+      }
+    })
   }
 }

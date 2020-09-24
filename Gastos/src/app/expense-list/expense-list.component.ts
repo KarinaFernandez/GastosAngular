@@ -11,7 +11,7 @@ export class ExpenseListComponent implements OnInit {
   todosGastos;
   gastos = [];
   titulos = [];
-  total = 1;
+  total;
   errMsg;
 
   constructor(
@@ -45,10 +45,7 @@ export class ExpenseListComponent implements OnInit {
   }
 
   removeExpense(index) {
-    console.log(index);
-
     let idGasto = this.todosGastos[index].id
-    console.log(idGasto);
 
     this.expenseService.removeExpense(idGasto).subscribe((a: any) => {
       if (a.codigo == 200) {

@@ -12,15 +12,15 @@
         <tr>
           <th *ngFor="let titulo of titulos" scope="col">{{ titulo }} </th>
         </tr>
-        <tr>
-          <h2>Total {{total}}</h2>
-        </tr>
       </thead>
       <tbody>
         <tr mdbTableCol *ngFor="let gasto of gastos; let i = index">
           <td>{{gasto.nombre}}</td>
           <td>${{gasto.monto}}</td>
-          <td><button class="btn btn-info button-small" (click)="removeExpense(i)">Eliminar</button></td>
+          <td><button class="btn btn-light button-small" (click)="removeExpense(i)">Eliminar</button></td>
+        </tr>
+        <tr *ngIf="gastos?.length > 0">
+          <h5>Total ${{total}}</h5>
         </tr>
       </tbody>
     </table>

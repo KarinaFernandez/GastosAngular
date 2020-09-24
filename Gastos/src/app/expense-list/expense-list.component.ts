@@ -11,6 +11,7 @@ export class ExpenseListComponent implements OnInit {
   todosGastos;
   gastos = [];
   titulos = [];
+  total = 1;
   errMsg;
 
   constructor(
@@ -25,7 +26,14 @@ export class ExpenseListComponent implements OnInit {
   getExpenses() {
     this.expenseService.getExpenses().subscribe((a: any) => {
       this.todosGastos = a.gastos;
-       this.gastos = this.todosGastos.slice(0, 10);
+      this.gastos = this.todosGastos.slice(0, 10);
+
+      let suma = 0;
+      this.gastos.forEach(gasto => {
+        let monto = parseInt(gasto.monto, 10);
+        suma += monto;
+      });
+      this.total = suma;
 
       // TODO: Fix this
       this.titulos = ["Nombre", "Monto", ""];

@@ -24,7 +24,7 @@ import { TotalAmountWastedComponent } from './total-amount-wasted/total-amount-w
     AddExpenseComponent,
     ExpensesPerTypeComponent,
     PurchaseByTypeComponent,
-      TotalAmountWastedComponent
+    TotalAmountWastedComponent
    ],
   imports: [
     BrowserModule,

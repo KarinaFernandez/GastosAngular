@@ -17,7 +17,8 @@ export class PurchaseByTypeComponent implements OnInit {
   }
 
   getExpenses() {
-    // TODO: Change this service's call by value in service
+    /* TODO: Change this service's call by value in service because it's not
+    updated after a changed in main view (ex: remove element) */
     this.expenseService.getExpenses().subscribe((a: any) => {
       this.todosGastos = a.gastos;
       this.getCountByExpenseType();
@@ -40,7 +41,7 @@ export class PurchaseByTypeComponent implements OnInit {
     for (var i = 0; i < result.length; i++) {
       if (result[i] != current) {
         if (count > 0) {
-          this.rubros.push({ rubro: current, cant: count});
+          this.rubros.push({ rubro: current, cant: count });
         }
         current = result[i];
         count = 1;
@@ -49,7 +50,7 @@ export class PurchaseByTypeComponent implements OnInit {
       }
     }
     if (count > 0) {
-      this.rubros.push({ rubro: current, cant: count});
+      this.rubros.push({ rubro: current, cant: count });
     }
     console.log(this.rubros);
   }

@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ExpenseListComponent } from './expense-list/expense-list.component';
 import { AddExpenseComponent } from './add-expense/add-expense.component';
+import { ExpensesPerTypeComponent } from './expenses-per-type/expenses-per-type.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AddExpenseComponent } from './add-expense/add-expense.component';
     LoginComponent,
     RegisterComponent,
     ExpenseListComponent,
-    AddExpenseComponent
+    AddExpenseComponent,
+    ExpensesPerTypeComponent
   ],
   imports: [
     BrowserModule,

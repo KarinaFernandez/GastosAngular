@@ -6,13 +6,21 @@ import { UserService } from './user.service';
   providedIn: 'root'
 })
 export class ExpenseServiceService {
-  gastos = [];
-  rubros = [];
+  expenses = [];
+  types = [];
 
   constructor(
     private http: HttpClient,
     private userService: UserService
   ) { }
+
+  setExpenses(expenses) {
+    this.expenses = expenses;
+  }
+
+  setExpenseTypes(types) {
+    this.types = types
+  }
 
   getExpenses() {
     const headers = { 'Content-Type': 'application/json', 'apiKey': this.userService.getUser().apiKey };

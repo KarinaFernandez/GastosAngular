@@ -1,0 +1,23 @@
+<body class="text-center">
+  <div>
+    <h5>Gastos por rubro</h5>
+  </div>
+  <div>
+    <p *ngIf="errMsg">{{errMsg}}</p>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <td>Rubro</td>
+          <td>Monto</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr mdbTableCol *ngFor="let rubro of rubros">
+          <td>{{rubro.rubro}}</td>
+          <td>${{rubro.monto}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>

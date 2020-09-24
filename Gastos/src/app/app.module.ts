@@ -12,9 +12,10 @@ import { ExpenseListComponent } from './expense-list/expense-list.component';
 import { AddExpenseComponent } from './add-expense/add-expense.component';
 import { ExpensesPerTypeComponent } from './expenses-per-type/expenses-per-type.component';
 import { PurchaseByTypeComponent } from './purchase-by-type/purchase-by-type.component';
+import { TotalAmountWastedComponent } from './total-amount-wasted/total-amount-wasted.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     TopBarComponent,
     LoginComponent,
@@ -22,8 +23,9 @@ import { PurchaseByTypeComponent } from './purchase-by-type/purchase-by-type.com
     ExpenseListComponent,
     AddExpenseComponent,
     ExpensesPerTypeComponent,
-    PurchaseByTypeComponent
-  ],
+    PurchaseByTypeComponent,
+      TotalAmountWastedComponent
+   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
